@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri Sales Pvt Ltd - Premium Pulses & Grains</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234CAF50" width="1200" height="600"/><circle fill="%23FFD700" cx="200" cy="150" r="80"/><circle fill="%23FF9800" cx="800" cy="200" r="60"/><circle fill="%23F44336" cx="1000" cy="400" r="70"/><rect fill="%239C27B0" x="300" y="400" width="150" height="100"/></svg>');
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FFD700;
+            color: #333;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2E7D32;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2E7D32;
+        }
+
+        .product-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: #F5F5F5;
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #2E7D32;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            background: #FFD700;
+            color: #333;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #FFED4E;
+        }
+
+        /* Footer */
+        footer {
+            background: #2E7D32;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🌾 Agri Sales Pvt Ltd</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Premium Pulses & Grains</h1>
+            <p>Direct from farms to your table. Quality you can trust, prices you love.</p>
+            <a href="#products" class="cta-button">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2 class="section-title">Our Premium Products</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">🫘</div>
+                <h3>Chana Dal</h3>
+                <p>Premium split chickpeas, rich in protein and fiber. Perfect for daily cooking.</p>
+                <div class="price">₹85/kg</div>
+                <button class="cta-button">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🌾</div>
+                <h3>Basmati Rice</h3>
+                <p>Long grain aromatic rice, aged to perfection for exceptional flavor.</p>
+                <div class="price">₹120/kg</div>
+                <button class="cta-button">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🫙</div>
+                <h3>Toor Dal</h3>
+                <p>High-quality pigeon peas, perfect for traditional sambar and dal tadka.</p>
+                <div class="price">₹95/kg</div>
+                <button class="cta-button">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🌽</div>
+                <h3>Yellow Maize</h3>
+                <p>Fresh yellow corn grains, ideal for cornmeal, polenta, and animal feed.</p>
+                <div class="price">₹45/kg</div>
+                <button class="cta-button">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🫘</div>
+                <h3>Moong Dal</h3>
+                <p>Whole green gram, nutrient-rich and easy to digest. Perfect for khichdi.</p>
+                <div class="price">₹110/kg</div>
+                <button class="cta-button">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🌾</div>
+                <h3>Wheat Grains</h3>
+                <p>Premium whole wheat grains for milling and traditional cooking.</p>
+                <div class="price">₹35/kg</div>
+                <button class="cta-button">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Agri Sales Pvt Ltd</h2>
+                    <p>With over 25 years in the agricultural sector, we specialize in sourcing the finest pulses and grains directly from trusted farmers across India. Our commitment to quality, fair pricing, and timely delivery has made us the preferred partner for wholesalers, retailers, and households.</p>
+                    <p>We ensure every grain meets international quality standards through rigorous testing and sorting processes.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>✅ 100% Pure & Natural</li>
+                        <li>✅ Direct from Farmers</li>
+                        <li>✅ Competitive Pricing</li>
+                        <li>✅ Pan-India Delivery</li>
+                    </ul>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🏭</div>
+                    <h3>20+ Years Experience</h3>
+                    <p>Trusted by thousands of customers nationwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white; margin-bottom: 3rem;">Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>📍 Visit Us</h3>
+                    <p><strong>Agri Sales Pvt Ltd</strong><br>
+                    Plot No. 123, Industrial Area<br>
+                    Hyderabad, Telangana 500001<br>
+                    India</p>
+                    
+                    <h3>📞 Contact</h3>
+                    <p>Phone: +91 98765 43210<br>
+                    Email: sales@agr-sales.com<br>
+                    WhatsApp: +91 98765 43210</p>
+                    
+                    <h3>🕒 Working Hours</h3>
+                    <p>Mon-Sat: 9AM - 7PM<br>
+                    Sunday: 10AM - 4PM</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Your Phone">
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Agri Sales Pvt Ltd. All rights reserved. | Premium Pulses & Grains Supplier</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent === 'Add to Cart') {
+                    this.textContent = 'Added! ✅';
+                    this.style.background = '#4CAF50';
+                    this.style.color = 'white';
+                    setTimeout(() => {
+                        this.textContent = 'Add to Cart';
+                        this.style.background = '#FFD700';
+                        this.style.color = '#333';
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
